@@ -1,0 +1,42 @@
+void deleteFromBeginning() {
+    if (head == null) return;
+    head = head.next;
+}
+
+
+void deleteFromEnd() {
+    if (head == null) return;
+
+    if (head.next == null) {
+        head = null;
+        return;
+    }
+
+    Node temp = head;
+    while (temp.next.next != null) {
+        temp = temp.next;
+    }
+
+    temp.next = null;
+}
+
+
+
+void deleteFromMiddle(int data) {
+    if (head == null) return;
+
+    if (head.data == data) {
+        head = head.next;
+        return;
+    }
+
+    Node temp = head;
+
+    while (temp.next != null && temp.next.data != data) {
+        temp = temp.next;
+    }
+
+    if (temp.next != null) {
+        temp.next = temp.next.next;
+    }
+}
